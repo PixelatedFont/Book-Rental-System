@@ -1,15 +1,15 @@
 # RandomWebStuff
 
-Stuff Done:
+Stuff Done:<br/>
 
-Publisher Controller/View
+Publisher Controller/View<br/>
 
-Stuff Need to finish
+Stuff Need to finish<br/>
 
-Universal Stuff:
-Admin Control Panel
-User Control Panel
+Universal Stuff:<br/>
+Admin Control Panel<br/>
+User Control Panel<br/>
 
-User Controller:
-+Add Password Change
+User Controller:<br/>
++Add Password Change<br/>
 
