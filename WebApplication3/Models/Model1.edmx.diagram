@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="be982987b8e54ac0adbbd5a0c290d4cc" Name="Diagram1">
+        <EntityTypeShape EntityType="BookRentalModel.AuthorTable" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.BookDetailTable" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.BookTable" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.PublisherTable" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.RentDetailTable" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.RentTable" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.RoleTable" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.UserInfoTable" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookRentalModel.UserTable" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BookRentalModel.FK__BookDetai__Autho__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__BookDetai__Publi__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__BookTable__ISBN__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__RentDetail__ISBN__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__RentTable__ISBN__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__RentDetai__BookI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__RentTable__BookI__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__RentDetai__RentI__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__RentDetai__UserI__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__RentTable__UserI__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__UserTable__RoleI__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="BookRentalModel.FK__UserInfoT__UserI__2A4B4B5E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

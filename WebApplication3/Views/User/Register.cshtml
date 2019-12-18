@@ -1,0 +1,56 @@
+﻿@model WebApplication3.ModelClasses.UserViewModel
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName1, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.UserName1, new { HtmlAttributes = new { @class = "form-control" } })
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserPassword1, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.UserPassword1, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName1, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.FirstName1, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName1, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.LastName1, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.U_Email1, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.U_Email1, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.U_PhoneNumber1, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.U_PhoneNumber1, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.U_Address1, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.U_Address1, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Register" />
+    </div>
+
+</div>
+}
+
