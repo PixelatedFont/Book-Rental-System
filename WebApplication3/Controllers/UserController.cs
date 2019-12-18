@@ -93,6 +93,7 @@ namespace WebApplication3.Controllers
                 var UserAccount = new UserTable();
                 UserAccount.UserName = userView.UserName1;
                 UserAccount.U_Pwd = userView.UserPassword1;
+                UserAccount.RoleID = 2;
 
                 var UserInfo = new UserInfoTable();
                 UserInfo.FirstName = userView.FirstName1;
@@ -193,5 +194,49 @@ namespace WebApplication3.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        [HttpGet]
+        public ActionResult Edit(int? id)
+        {
+            var UserID = (from User in db.UserInfoTables where User.UserID == id select User.UserID).SingleOrDefault();
+
+            if (Convert.ToInt32(Session["UserID"]) == id || Convert.ToBoolean(Session["IsAdmin"]) == true)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                UserInfoTable UserInfo = db.UserInfoTables.Find(id);
+
+                if (UserInfo == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(UserInfo);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                UserInfoTable UserInfo = db.UserInfoTables.Find(id);
+                if (TryUpdateModel(UserInfo,"", new string[] {"FirstName","LastName", "U_Email", "U_PhoneNumber", "U_Address" }))
+                {
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                }
+                return View(UserInfo);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

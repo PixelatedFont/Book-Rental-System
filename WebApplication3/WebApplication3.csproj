@@ -236,6 +236,7 @@
     <Content Include="Views\User\Remove.cshtml" />
     <Content Include="Views\User\Detail.cshtml" />
     <Content Include="Views\User\UserList.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
