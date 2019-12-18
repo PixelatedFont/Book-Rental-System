@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication3.Models;
-using WebApplication3.ModelClasses;
+using WebApplication3.ViewModels;
 using System.Net;
 
 namespace WebApplication3.Controllers
@@ -228,15 +228,14 @@ namespace WebApplication3.Controllers
             if (ModelState.IsValid)
             {
                 UserInfoTable UserInfo = db.UserInfoTables.Find(id);
-                if (TryUpdateModel(UserInfo,"", new string[] {"FirstName","LastName", "U_Email", "U_PhoneNumber", "U_Address" }))
+                if (TryUpdateModel(UserInfo,"", new string[] {"FirstName","LastName", "U_Email", "U_PhoneNumber", "U_Address"}))
                 {
                         db.SaveChanges();
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", "Home");
                 }
-                return View(UserInfo);
             }
             return RedirectToAction("Index", "Home");
         }
-
     }
+    //Implement Password Change
 }
