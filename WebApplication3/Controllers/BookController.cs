@@ -41,6 +41,7 @@ namespace WebApplication3.Controllers
             {
                 BookTable book = new BookTable();
                 book.ISBN = viewModel.ISBN1;
+                book.BookStatus = false;
 
                 BookDetailTable bookDetail = new BookDetailTable();
                 bookDetail.ISBN = viewModel.ISBN1;
