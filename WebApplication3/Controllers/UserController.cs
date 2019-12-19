@@ -13,9 +13,24 @@ namespace WebApplication3.Controllers
     {
         BookRentalEntities db = new BookRentalEntities();
         // GET: User
-        public ActionResult Index()
+        public ActionResult UserControlPanel()
         {
-            return View();
+            if (Session["UserID"] != null && Convert.ToBoolean(Session["IsAdmin"]) == false)
+            {
+                return View("UserControlPanel");
+
+            }
+            else return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult AdminControlPanel()
+        {
+            if (Session["UserID"] != null && Convert.ToBoolean(Session["IsAdmin"]) == true)
+            {
+                return View("AdminControlPanel");
+
+            }
+            else return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public ActionResult Login()

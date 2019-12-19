@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "AdminControlPanel";
+}
+
+<h2>AdminControlPanel</h2>
+
+<div class="jumbotron">
+    <div class="btn-group-vertical  btn-group-lg">
+        <input type="button" class="btn btn-primary" value="User List" onclick="location.href='@Url.Action("UserList", "User")'" />
+        <input type="button" class="btn btn-primary" value="Publisher List" onclick="location.href='@Url.Action("Index", "Publisher")'" />
+        <input type="button" class="btn btn-primary" value="Author List" onclick="location.href='@Url.Action("Index", "Author")'" />
+        <input type="button" class="btn btn-primary" value="Book List" onclick="location.href='@Url.Action("Index", "Book")'" />
+        <input type="button" class="btn btn-primary" value="Rent List" onclick="location.href='@Url.Action("Index", "Rent")'" />
+    </div>
+</div>

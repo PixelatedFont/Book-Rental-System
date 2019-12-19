@@ -4,10 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
+    body {
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <h2>Remove the book</h2>
+</body>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <input type="button" class="btn btn-primary" value="Create New Author" onclick="location.href='@Url.Action("Create", "Author")'" />
 </p>
 <table class="table">
     <tr>
@@ -17,17 +24,20 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AuthorName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AuthorID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AuthorID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AuthorID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                <div class="btn-group-sm">
+                    <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Edit", "Author", new { id = item.AuthorID })'" />
+                    <input type="button" class="btn btn-primary" value="Detail" onclick="location.href='@Url.Action("Detail", "Author", new { id = item.AuthorID })'" />
+                    <input type="button" class="btn btn-primary" value="Remove" onclick="location.href='@Url.Action("Remove", "Author", new { id = item.AuthorID })'" />
+                </div>
+            </td>
+        </tr>
+    }
 
 </table>

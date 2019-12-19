@@ -4,18 +4,23 @@
     ViewBag.Title = "EditRent";
 }
 
-<h2>EditRent</h2>
-
-
+<style>
+    body {
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <h2>Rent Editor</h2>
+</body>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>RentViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-   
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.BookID1, htmlAttributes: new { @class = "control-label col-md-2" })

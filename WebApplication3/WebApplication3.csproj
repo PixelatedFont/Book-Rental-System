@@ -263,9 +263,17 @@
     <Content Include="Views\Book\Detail.cshtml" />
     <Content Include="Views\Rent\Rent.cshtml" />
     <Content Include="Views\Rent\EditRent.cshtml" />
+    <Content Include="Views\Rent\RentDetail.cshtml" />
+    <Content Include="Views\Rent\RentRemove.cshtml" />
+    <Content Include="Views\User\UserControlPanel.cshtml" />
+    <Content Include="Views\User\AdminControlPanel.cshtml" />
+    <Content Include="Views\Rent\Index.cshtml" />
+    <Content Include="Views\Rent\UserRentList.cshtml" />
+    <Content Include="Views\Book\BookList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

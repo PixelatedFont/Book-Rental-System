@@ -15,7 +15,27 @@ namespace WebApplication3.Controllers
         BookRentalEntities db = new BookRentalEntities();
         public ActionResult Index()
         {
-            return View();
+            if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+            {
+                return View(db.RentDetailTables.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public ActionResult UserRentList(int? id)
+        {
+            if (Session["UserID"] != null)
+            {
+                var UserRentDetail = (from User in db.RentDetailTables where User.UserID == id select User).ToList();
+                return View(UserRentDetail);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpGet]
@@ -23,20 +43,25 @@ namespace WebApplication3.Controllers
         {
             if (Session["UserID"] != null)
             {
-                RentViewModel viewModel = new RentViewModel();
-                viewModel.UserID1 = Convert.ToInt32(Session["UserID"]);
-                BookDetailTable bookDetail = db.BookDetailTables.Find(id);
+             
                 BookTable book = db.BookTables.Find(id);
-                viewModel.BookDetailTable = bookDetail;
-                viewModel.BookTable = book;
-                viewModel.RentDate1 = DateTime.Now;
-                viewModel.DueDate1 = DateTime.Now.AddDays(7);
-                viewModel.BookID1 = book.BookID;
-                viewModel.Deposit1 = 100000 + 3000*7;
-                viewModel.Cost1 = 3000;
+                if (book.BookStatus == false)
+                {
+                    RentViewModel viewModel = new RentViewModel();
+                    viewModel.UserID1 = Convert.ToInt32(Session["UserID"]);
+                    BookDetailTable bookDetail = db.BookDetailTables.Find(id);
+                    viewModel.BookDetailTable = bookDetail;
+                    viewModel.BookTable = book;
+                    viewModel.RentDate1 = DateTime.Now;
+                    viewModel.DueDate1 = DateTime.Now.AddDays(7);
+                    viewModel.BookID1 = book.BookID;
+                    viewModel.Deposit1 = 100000 + 3000 * 7;
+                    viewModel.Cost1 = 3000;
 
 
-                return View(viewModel);
+                    return View(viewModel);
+                }
+                else { return RedirectToAction("Index", "Home"); }
             }
 
             else { return RedirectToAction("Index", "Home"); }
@@ -53,7 +78,7 @@ namespace WebApplication3.Controllers
                 RentDetailTable rentDetail = new RentDetailTable();
                 rentDetail.BookID = book1.BookID;
                 rentDetail.UserID = Convert.ToInt32(Session["UserID"]);
-                rentDetail.ISBN = book.ISBN;
+                rentDetail.ISBN = book1.ISBN;
                 rentDetail.RentDate = DateTime.Now;
                 rentDetail.DueDate = DateTime.Now.AddDays(7);
                 rentDetail.Deposit = 100000;
@@ -144,6 +169,34 @@ namespace WebApplication3.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            else return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult RentRemove(int? id)
+        {
+            if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+            {
+                RentDetailTable rentDetail = db.RentDetailTables.Find(id);
+                return View(rentDetail);
+            }
+            else return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult RentRemove(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                var rentDetail = db.RentDetailTables.Find(id);
+                var rent = db.RentTables.Find(id);
+
+                db.RentDetailTables.Remove(rentDetail);
+                db.RentTables.Remove(rent);
+
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
             else return RedirectToAction("Index", "Home");
         }
     }

@@ -4,10 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<style>
+    body {
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <h2>Book list</h2>
+</body>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <input type="button" class="btn btn-primary" value="Create New Book" onclick="location.href='@Url.Action("Create", "Book")'" />
 </p>
 <table class="table">
     <tr>
@@ -20,20 +26,23 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookDetailTable.Title)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookDetailTable.Title)
+    </td>
+    <td>
+        <div class="btn-group-sm">
+            <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Edit", "Book", new { id = item.BookID })'" />
+            <input type="button" class="btn btn-primary" value="Detail" onclick="location.href='@Url.Action("Detail", "Book", new { id = item.BookID })'" />
+            <input type="button" class="btn btn-primary" value="Remove" onclick="location.href='@Url.Action("Remove", "Book", new { id = item.BookID })'" />
+        </div>
+    </td>
+</tr>
+    }
 
 </table>

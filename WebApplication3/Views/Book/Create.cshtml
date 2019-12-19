@@ -4,18 +4,25 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<style>
+    body {
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <h2>Create a book</h2>
+</body>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>BookViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-       
+
         <div class="form-group">
             @Html.LabelFor(model => model.ISBN1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -53,16 +60,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PublisherID1, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PublisherID1, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BookStatus1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.BookStatus1)
-                    @Html.ValidationMessageFor(model => model.BookStatus1, "", new { @class = "text-danger" })
-                </div>
             </div>
         </div>
 

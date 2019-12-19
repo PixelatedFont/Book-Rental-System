@@ -3,12 +3,14 @@
 @{
     ViewBag.Title = "UserList";
 }
-
-<h2>UserList</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<style>
+    body {
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <h2>List of registered users</h2>
+</body>
 <table class="table">
     <tr>
         <th>
@@ -32,32 +34,35 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.U_Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.U_PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.U_Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserTable.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
-            @Html.ActionLink("Detail", "Detail", new { id=item.UserID }) |
-            @Html.ActionLink("Remove", "Remove", new { id=item.UserID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserTable.UserName)
+            </td>
+            <td>
+                <div class="btn-group-sm">
+                    <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Edit", "User", new { id = item.UserID })'" />
+                    <input type="button" class="btn btn-primary" value="Detail" onclick="location.href='@Url.Action("Detail", "User", new { id = item.UserID })'" />
+                    <input type="button" class="btn btn-primary" value="Remove" onclick="location.href='@Url.Action("Remove", "User", new { id = item.UserID })'" />
+                </div>
+            </td>
+        </tr>
+    }
 
 </table>

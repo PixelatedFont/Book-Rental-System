@@ -16,7 +16,17 @@ namespace WebApplication3.Controllers
 
         public ActionResult Index()
         {
-            return View(db.BookTables.ToList());
+            if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+            {
+                return View(db.BookTables.ToList());
+            }
+            else return View("Index", "Home");
+        }
+
+        public ActionResult BookList()
+        {
+            var BookTableRentable = (from Book in db.BookTables where Book.BookStatus != true select Book).ToList();
+            return View(BookTableRentable);
         }
 
         [HttpGet]

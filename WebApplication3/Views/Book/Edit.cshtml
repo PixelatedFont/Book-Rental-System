@@ -4,13 +4,19 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
+<style>
+    body {
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <h2>Book editor</h2>
+</body>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>BookTable</h4>
         <hr />
