@@ -3,6 +3,8 @@
 Stuff Done:<br/>
 
 Publisher Controller/View<br/>
+Author Controller/View<br/>
+Book Controller/View<br/>
 
 Stuff Need to finish<br/>
 
