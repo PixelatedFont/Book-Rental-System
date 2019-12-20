@@ -1,0 +1,87 @@
+﻿@model WebApplication3.Models.UserInfoTable
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<style>
+    body {
+        padding-top: 100px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color:#f0ece4;
+    }
+</style>
+<body>
+    <h2>ACCOUNT DETAILS</h2>
+</body>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserTable.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserTable.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserTable.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserTable.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn btn-primary" value="Change Information" onclick="location.href='@Url.Action("Edit", "User", new { id = Model.UserID})'" />
+    <input type="button" class="btn btn-primary" value="Change Password" onclick="location.href='@Url.Action("ChangePassword", "User", new { id = Model.UserID})'" />
+    @if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+    {
+        <input type="button" class="btn btn-primary" value="Back to User List" onclick="location.href='@Url.Action("UserList", "User")'" />
+    }
+</p>

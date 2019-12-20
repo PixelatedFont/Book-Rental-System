@@ -1,0 +1,55 @@
+﻿@model WebApplication3.Models.PublisherTable
+
+
+    <style>
+        body {
+            padding-top: 100px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f0ece4;
+        }
+    </style>
+<body>
+    <h2>PUBLISHER INFORMATION</h2>
+</body>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href='@Url.Action("Index", "Publisher")'" />
+
+    <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Edit", "Publisher", new { id = Model.PublisherID })'" />
+</p>

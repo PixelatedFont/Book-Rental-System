@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication3.Models.BookTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <style>
+        body {
+            padding-top: 100px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f0ece4;
+        }
+    </style>
+<body>
+    <h2>Book list</h2>
+</body>
+<p>
+    <input type="button" class="btn btn-primary" value="Create New Book" onclick="location.href='@Url.Action("Create", "Book")'" />
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookDetailTable.Title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookDetailTable.Title)
+    </td>
+    <td>
+        <div class="btn-group-sm">
+            <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Edit", "Book", new { id = item.BookID })'" />
+            <input type="button" class="btn btn-primary" value="Edit Detail" onclick="location.href='@Url.Action("EditDetail", "Book", new { id = item.BookID })'" />
+            <input type="button" class="btn btn-primary" value="Detail" onclick="location.href='@Url.Action("Detail", "Book", new { id = item.BookID })'" />
+            <input type="button" class="btn btn-primary" value="Remove" onclick="location.href='@Url.Action("Remove", "Book", new { id = item.BookID })'" />
+        </div>
+    </td>
+</tr>
+    }
+
+</table>
