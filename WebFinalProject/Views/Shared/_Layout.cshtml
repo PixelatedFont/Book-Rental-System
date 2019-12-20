@@ -1,41 +1,37 @@
 ﻿<!DOCTYPE html>
 <style>
-    .godown 
-    {
+    .godown {
         padding-top: 30px;
-
-    }
-    .navbar-default
-    {
-            background-color:#eae2c9 !important;
-            border:solid;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
-    }
-    .btn-primary
-    {
-        background-color:#511f3c !important;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;       
-        border:none !important;
-        outline:none !important;
     }
 
-
-    .h3
-    {
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-    }
-    .h4{
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-    .body{
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        background-color:#fce1a1;
-        color:#5a3d28 !important;
-
+    .navbar-default {
+        background-color: #eae2c9 !important;
+        border: solid;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
     }
 
+    .btn-primary {
+        background-color: #511f3c !important;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        border: none !important;
+        outline: none !important;
+    }
+
+
+    .h3 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .h4 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: #fce1a1;
+        color: #5a3d28 !important;
+    }
 </style>
 <html>
 <head>
@@ -110,13 +106,13 @@
                     <li class="h3"><a href="@Url.Action("BookList","Book")">Book List</a></li>
 
                 </ul>
-                
+
             </div>
             <!--Menu End Here-->
         </div>
     </nav>
 
-    
+
     <div class="container body-content">
         @RenderBody()
         <hr />
