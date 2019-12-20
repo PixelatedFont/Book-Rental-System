@@ -1,17 +1,7 @@
-# RandomWebStuff
+# Web Final Project
 
-Stuff Done:<br/>
+Author:</br>
+<b>Ngu Quoc Phong 17110060 </b></br>
+<b>Tran Minh Quang 17110067 </b></br>
 
-Publisher Controller/View<br/>
-Author Controller/View<br/>
-Book Controller/View<br/>
-
-Stuff Need to finish<br/>
-
-Universal Stuff:<br/>
-Admin Control Panel<br/>
-User Control Panel<br/>
-
-User Controller:<br/>
-+Add Password Change<br/>
 
