@@ -27,7 +27,7 @@
             <PropertyRef Name="BookID" />
           </Key>
           <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ISBN" Type="int" Nullable="false" />
+          <Property Name="ISBN" Type="int" />
           <Property Name="BookStatus" Type="bit" />
         </EntityType>
         <EntityType Name="PublisherTable">
@@ -94,7 +94,7 @@
           <Property Name="U_Pwd" Type="varchar" MaxLength="30" />
           <Property Name="RoleID" Type="int" />
         </EntityType>
-        <Association Name="FK__BookDetai__Autho__31EC6D26">
+        <Association Name="FK__BookDetai__Autho__38996AB5">
           <End Role="AuthorTable" Type="Self.AuthorTable" Multiplicity="0..1" />
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -106,7 +106,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BookDetai__Publi__32E0915F">
+        <Association Name="FK__BookDetai__Publi__398D8EEE">
           <End Role="PublisherTable" Type="Self.PublisherTable" Multiplicity="0..1" />
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,8 +118,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BookTable__ISBN__35BCFE0A">
-          <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="1" />
+        <Association Name="FK__BookTable__ISBN__3A81B327">
+          <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="0..1" />
           <End Role="BookTable" Type="Self.BookTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BookDetailTable">
@@ -130,7 +130,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetai__BookI__3F466844">
+        <Association Name="FK__RentDetai__BookI__3C69FB99">
           <End Role="BookTable" Type="Self.BookTable" Multiplicity="0..1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +142,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetai__RentI__3E52440B">
+        <Association Name="FK__RentDetai__RentI__3B75D760">
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -154,7 +154,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetai__UserI__412EB0B6">
+        <Association Name="FK__RentDetai__UserI__3D5E1FD2">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="0..1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,7 +166,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetail__ISBN__403A8C7D">
+        <Association Name="FK__RentDetail__ISBN__3E52440B">
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="0..1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,7 +178,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentTable__BookI__38996AB5">
+        <Association Name="FK__RentTable__BookI__3F466844">
           <End Role="BookTable" Type="Self.BookTable" Multiplicity="0..1" />
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,7 +190,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentTable__ISBN__398D8EEE">
+        <Association Name="FK__RentTable__ISBN__412EB0B6">
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="0..1" />
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -202,7 +202,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentTable__UserI__3A81B327">
+        <Association Name="FK__RentTable__UserI__403A8C7D">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="0..1" />
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -214,7 +214,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserInfoT__UserI__2A4B4B5E">
+        <Association Name="FK__UserInfoT__UserI__4222D4EF">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
           <End Role="UserInfoTable" Type="Self.UserInfoTable" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -226,7 +226,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserTable__RoleI__267ABA7A">
+        <Association Name="FK__UserTable__RoleI__4316F928">
           <End Role="RoleTable" Type="Self.RoleTable" Multiplicity="0..1" />
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -248,51 +248,51 @@
           <EntitySet Name="RoleTable" EntityType="Self.RoleTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfoTable" EntityType="Self.UserInfoTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BookDetai__Autho__31EC6D26" Association="Self.FK__BookDetai__Autho__31EC6D26">
+          <AssociationSet Name="FK__BookDetai__Autho__38996AB5" Association="Self.FK__BookDetai__Autho__38996AB5">
             <End Role="AuthorTable" EntitySet="AuthorTable" />
             <End Role="BookDetailTable" EntitySet="BookDetailTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__BookDetai__Publi__32E0915F" Association="Self.FK__BookDetai__Publi__32E0915F">
+          <AssociationSet Name="FK__BookDetai__Publi__398D8EEE" Association="Self.FK__BookDetai__Publi__398D8EEE">
             <End Role="PublisherTable" EntitySet="PublisherTable" />
             <End Role="BookDetailTable" EntitySet="BookDetailTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__BookTable__ISBN__35BCFE0A" Association="Self.FK__BookTable__ISBN__35BCFE0A">
+          <AssociationSet Name="FK__BookTable__ISBN__3A81B327" Association="Self.FK__BookTable__ISBN__3A81B327">
             <End Role="BookDetailTable" EntitySet="BookDetailTable" />
             <End Role="BookTable" EntitySet="BookTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetai__BookI__3F466844" Association="Self.FK__RentDetai__BookI__3F466844">
+          <AssociationSet Name="FK__RentDetai__BookI__3C69FB99" Association="Self.FK__RentDetai__BookI__3C69FB99">
             <End Role="BookTable" EntitySet="BookTable" />
             <End Role="RentDetailTable" EntitySet="RentDetailTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetai__RentI__3E52440B" Association="Self.FK__RentDetai__RentI__3E52440B">
+          <AssociationSet Name="FK__RentDetai__RentI__3B75D760" Association="Self.FK__RentDetai__RentI__3B75D760">
             <End Role="RentTable" EntitySet="RentTable" />
             <End Role="RentDetailTable" EntitySet="RentDetailTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetai__UserI__412EB0B6" Association="Self.FK__RentDetai__UserI__412EB0B6">
+          <AssociationSet Name="FK__RentDetai__UserI__3D5E1FD2" Association="Self.FK__RentDetai__UserI__3D5E1FD2">
             <End Role="UserTable" EntitySet="UserTable" />
             <End Role="RentDetailTable" EntitySet="RentDetailTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetail__ISBN__403A8C7D" Association="Self.FK__RentDetail__ISBN__403A8C7D">
+          <AssociationSet Name="FK__RentDetail__ISBN__3E52440B" Association="Self.FK__RentDetail__ISBN__3E52440B">
             <End Role="BookDetailTable" EntitySet="BookDetailTable" />
             <End Role="RentDetailTable" EntitySet="RentDetailTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentTable__BookI__38996AB5" Association="Self.FK__RentTable__BookI__38996AB5">
+          <AssociationSet Name="FK__RentTable__BookI__3F466844" Association="Self.FK__RentTable__BookI__3F466844">
             <End Role="BookTable" EntitySet="BookTable" />
             <End Role="RentTable" EntitySet="RentTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentTable__ISBN__398D8EEE" Association="Self.FK__RentTable__ISBN__398D8EEE">
+          <AssociationSet Name="FK__RentTable__ISBN__412EB0B6" Association="Self.FK__RentTable__ISBN__412EB0B6">
             <End Role="BookDetailTable" EntitySet="BookDetailTable" />
             <End Role="RentTable" EntitySet="RentTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentTable__UserI__3A81B327" Association="Self.FK__RentTable__UserI__3A81B327">
+          <AssociationSet Name="FK__RentTable__UserI__403A8C7D" Association="Self.FK__RentTable__UserI__403A8C7D">
             <End Role="UserTable" EntitySet="UserTable" />
             <End Role="RentTable" EntitySet="RentTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserInfoT__UserI__2A4B4B5E" Association="Self.FK__UserInfoT__UserI__2A4B4B5E">
+          <AssociationSet Name="FK__UserInfoT__UserI__4222D4EF" Association="Self.FK__UserInfoT__UserI__4222D4EF">
             <End Role="UserTable" EntitySet="UserTable" />
             <End Role="UserInfoTable" EntitySet="UserInfoTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserTable__RoleI__267ABA7A" Association="Self.FK__UserTable__RoleI__267ABA7A">
+          <AssociationSet Name="FK__UserTable__RoleI__4316F928" Association="Self.FK__UserTable__RoleI__4316F928">
             <End Role="RoleTable" EntitySet="RoleTable" />
             <End Role="UserTable" EntitySet="UserTable" />
           </AssociationSet>
@@ -308,7 +308,7 @@
           </Key>
           <Property Name="AuthorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AuthorName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BookDetailTables" Relationship="Self.FK__BookDetai__Autho__31EC6D26" FromRole="AuthorTable" ToRole="BookDetailTable" />
+          <NavigationProperty Name="BookDetailTables" Relationship="Self.FK__BookDetai__Autho__38996AB5" FromRole="AuthorTable" ToRole="BookDetailTable" />
         </EntityType>
         <EntityType Name="BookDetailTable">
           <Key>
@@ -319,22 +319,22 @@
           <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AuthorID" Type="Int32" />
           <Property Name="PublisherID" Type="Int32" />
-          <NavigationProperty Name="AuthorTable" Relationship="Self.FK__BookDetai__Autho__31EC6D26" FromRole="BookDetailTable" ToRole="AuthorTable" />
-          <NavigationProperty Name="PublisherTable" Relationship="Self.FK__BookDetai__Publi__32E0915F" FromRole="BookDetailTable" ToRole="PublisherTable" />
-          <NavigationProperty Name="BookTables" Relationship="Self.FK__BookTable__ISBN__35BCFE0A" FromRole="BookDetailTable" ToRole="BookTable" />
-          <NavigationProperty Name="RentDetailTables" Relationship="Self.FK__RentDetail__ISBN__403A8C7D" FromRole="BookDetailTable" ToRole="RentDetailTable" />
-          <NavigationProperty Name="RentTables" Relationship="Self.FK__RentTable__ISBN__398D8EEE" FromRole="BookDetailTable" ToRole="RentTable" />
+          <NavigationProperty Name="AuthorTable" Relationship="Self.FK__BookDetai__Autho__38996AB5" FromRole="BookDetailTable" ToRole="AuthorTable" />
+          <NavigationProperty Name="PublisherTable" Relationship="Self.FK__BookDetai__Publi__398D8EEE" FromRole="BookDetailTable" ToRole="PublisherTable" />
+          <NavigationProperty Name="BookTables" Relationship="Self.FK__BookTable__ISBN__3A81B327" FromRole="BookDetailTable" ToRole="BookTable" />
+          <NavigationProperty Name="RentDetailTables" Relationship="Self.FK__RentDetail__ISBN__3E52440B" FromRole="BookDetailTable" ToRole="RentDetailTable" />
+          <NavigationProperty Name="RentTables" Relationship="Self.FK__RentTable__ISBN__412EB0B6" FromRole="BookDetailTable" ToRole="RentTable" />
         </EntityType>
         <EntityType Name="BookTable">
           <Key>
             <PropertyRef Name="BookID" />
           </Key>
           <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ISBN" Type="Int32" Nullable="false" />
+          <Property Name="ISBN" Type="Int32" />
           <Property Name="BookStatus" Type="Boolean" />
-          <NavigationProperty Name="BookDetailTable" Relationship="Self.FK__BookTable__ISBN__35BCFE0A" FromRole="BookTable" ToRole="BookDetailTable" />
-          <NavigationProperty Name="RentDetailTables" Relationship="Self.FK__RentDetai__BookI__3F466844" FromRole="BookTable" ToRole="RentDetailTable" />
-          <NavigationProperty Name="RentTables" Relationship="Self.FK__RentTable__BookI__38996AB5" FromRole="BookTable" ToRole="RentTable" />
+          <NavigationProperty Name="BookDetailTable" Relationship="Self.FK__BookTable__ISBN__3A81B327" FromRole="BookTable" ToRole="BookDetailTable" />
+          <NavigationProperty Name="RentDetailTables" Relationship="Self.FK__RentDetai__BookI__3C69FB99" FromRole="BookTable" ToRole="RentDetailTable" />
+          <NavigationProperty Name="RentTables" Relationship="Self.FK__RentTable__BookI__3F466844" FromRole="BookTable" ToRole="RentTable" />
         </EntityType>
         <EntityType Name="PublisherTable">
           <Key>
@@ -345,7 +345,7 @@
           <Property Name="P_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="P_PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="P_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BookDetailTables" Relationship="Self.FK__BookDetai__Publi__32E0915F" FromRole="PublisherTable" ToRole="BookDetailTable" />
+          <NavigationProperty Name="BookDetailTables" Relationship="Self.FK__BookDetai__Publi__398D8EEE" FromRole="PublisherTable" ToRole="BookDetailTable" />
         </EntityType>
         <EntityType Name="RentDetailTable">
           <Key>
@@ -362,10 +362,10 @@
           <Property Name="Paid" Type="Double" />
           <Property Name="Deposit" Type="Double" />
           <Property Name="Note" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BookDetailTable" Relationship="Self.FK__RentDetail__ISBN__403A8C7D" FromRole="RentDetailTable" ToRole="BookDetailTable" />
-          <NavigationProperty Name="BookTable" Relationship="Self.FK__RentDetai__BookI__3F466844" FromRole="RentDetailTable" ToRole="BookTable" />
-          <NavigationProperty Name="RentTable" Relationship="Self.FK__RentDetai__RentI__3E52440B" FromRole="RentDetailTable" ToRole="RentTable" />
-          <NavigationProperty Name="UserTable" Relationship="Self.FK__RentDetai__UserI__412EB0B6" FromRole="RentDetailTable" ToRole="UserTable" />
+          <NavigationProperty Name="BookDetailTable" Relationship="Self.FK__RentDetail__ISBN__3E52440B" FromRole="RentDetailTable" ToRole="BookDetailTable" />
+          <NavigationProperty Name="BookTable" Relationship="Self.FK__RentDetai__BookI__3C69FB99" FromRole="RentDetailTable" ToRole="BookTable" />
+          <NavigationProperty Name="RentTable" Relationship="Self.FK__RentDetai__RentI__3B75D760" FromRole="RentDetailTable" ToRole="RentTable" />
+          <NavigationProperty Name="UserTable" Relationship="Self.FK__RentDetai__UserI__3D5E1FD2" FromRole="RentDetailTable" ToRole="UserTable" />
         </EntityType>
         <EntityType Name="RentTable">
           <Key>
@@ -377,10 +377,10 @@
           <Property Name="UserID" Type="Int32" />
           <Property Name="RentDate" Type="DateTime" Precision="0" />
           <Property Name="DueDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="BookDetailTable" Relationship="Self.FK__RentTable__ISBN__398D8EEE" FromRole="RentTable" ToRole="BookDetailTable" />
-          <NavigationProperty Name="BookTable" Relationship="Self.FK__RentTable__BookI__38996AB5" FromRole="RentTable" ToRole="BookTable" />
-          <NavigationProperty Name="RentDetailTable" Relationship="Self.FK__RentDetai__RentI__3E52440B" FromRole="RentTable" ToRole="RentDetailTable" />
-          <NavigationProperty Name="UserTable" Relationship="Self.FK__RentTable__UserI__3A81B327" FromRole="RentTable" ToRole="UserTable" />
+          <NavigationProperty Name="BookDetailTable" Relationship="Self.FK__RentTable__ISBN__412EB0B6" FromRole="RentTable" ToRole="BookDetailTable" />
+          <NavigationProperty Name="BookTable" Relationship="Self.FK__RentTable__BookI__3F466844" FromRole="RentTable" ToRole="BookTable" />
+          <NavigationProperty Name="RentDetailTable" Relationship="Self.FK__RentDetai__RentI__3B75D760" FromRole="RentTable" ToRole="RentDetailTable" />
+          <NavigationProperty Name="UserTable" Relationship="Self.FK__RentTable__UserI__403A8C7D" FromRole="RentTable" ToRole="UserTable" />
         </EntityType>
         <EntityType Name="RoleTable">
           <Key>
@@ -388,7 +388,7 @@
           </Key>
           <Property Name="RoleID" Type="Int32" Nullable="false" />
           <Property Name="RoleDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="UserTables" Relationship="Self.FK__UserTable__RoleI__267ABA7A" FromRole="RoleTable" ToRole="UserTable" />
+          <NavigationProperty Name="UserTables" Relationship="Self.FK__UserTable__RoleI__4316F928" FromRole="RoleTable" ToRole="UserTable" />
         </EntityType>
         <EntityType Name="UserInfoTable">
           <Key>
@@ -400,7 +400,7 @@
           <Property Name="U_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="U_PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="U_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="UserTable" Relationship="Self.FK__UserInfoT__UserI__2A4B4B5E" FromRole="UserInfoTable" ToRole="UserTable" />
+          <NavigationProperty Name="UserTable" Relationship="Self.FK__UserInfoT__UserI__4222D4EF" FromRole="UserInfoTable" ToRole="UserTable" />
         </EntityType>
         <EntityType Name="UserTable">
           <Key>
@@ -410,12 +410,12 @@
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="U_Pwd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="RoleID" Type="Int32" />
-          <NavigationProperty Name="RentDetailTables" Relationship="Self.FK__RentDetai__UserI__412EB0B6" FromRole="UserTable" ToRole="RentDetailTable" />
-          <NavigationProperty Name="RentTables" Relationship="Self.FK__RentTable__UserI__3A81B327" FromRole="UserTable" ToRole="RentTable" />
-          <NavigationProperty Name="RoleTable" Relationship="Self.FK__UserTable__RoleI__267ABA7A" FromRole="UserTable" ToRole="RoleTable" />
-          <NavigationProperty Name="UserInfoTable" Relationship="Self.FK__UserInfoT__UserI__2A4B4B5E" FromRole="UserTable" ToRole="UserInfoTable" />
+          <NavigationProperty Name="RentDetailTables" Relationship="Self.FK__RentDetai__UserI__3D5E1FD2" FromRole="UserTable" ToRole="RentDetailTable" />
+          <NavigationProperty Name="RentTables" Relationship="Self.FK__RentTable__UserI__403A8C7D" FromRole="UserTable" ToRole="RentTable" />
+          <NavigationProperty Name="RoleTable" Relationship="Self.FK__UserTable__RoleI__4316F928" FromRole="UserTable" ToRole="RoleTable" />
+          <NavigationProperty Name="UserInfoTable" Relationship="Self.FK__UserInfoT__UserI__4222D4EF" FromRole="UserTable" ToRole="UserInfoTable" />
         </EntityType>
-        <Association Name="FK__BookDetai__Autho__31EC6D26">
+        <Association Name="FK__BookDetai__Autho__38996AB5">
           <End Role="AuthorTable" Type="Self.AuthorTable" Multiplicity="0..1" />
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -427,7 +427,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BookDetai__Publi__32E0915F">
+        <Association Name="FK__BookDetai__Publi__398D8EEE">
           <End Role="PublisherTable" Type="Self.PublisherTable" Multiplicity="0..1" />
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -439,8 +439,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BookTable__ISBN__35BCFE0A">
-          <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="1" />
+        <Association Name="FK__BookTable__ISBN__3A81B327">
+          <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="0..1" />
           <End Role="BookTable" Type="Self.BookTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BookDetailTable">
@@ -451,7 +451,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetail__ISBN__403A8C7D">
+        <Association Name="FK__RentDetail__ISBN__3E52440B">
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="0..1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -463,7 +463,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentTable__ISBN__398D8EEE">
+        <Association Name="FK__RentTable__ISBN__412EB0B6">
           <End Role="BookDetailTable" Type="Self.BookDetailTable" Multiplicity="0..1" />
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -475,7 +475,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetai__BookI__3F466844">
+        <Association Name="FK__RentDetai__BookI__3C69FB99">
           <End Role="BookTable" Type="Self.BookTable" Multiplicity="0..1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -487,7 +487,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentTable__BookI__38996AB5">
+        <Association Name="FK__RentTable__BookI__3F466844">
           <End Role="BookTable" Type="Self.BookTable" Multiplicity="0..1" />
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -499,7 +499,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetai__RentI__3E52440B">
+        <Association Name="FK__RentDetai__RentI__3B75D760">
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -511,7 +511,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentDetai__UserI__412EB0B6">
+        <Association Name="FK__RentDetai__UserI__3D5E1FD2">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="0..1" />
           <End Role="RentDetailTable" Type="Self.RentDetailTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -523,7 +523,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RentTable__UserI__3A81B327">
+        <Association Name="FK__RentTable__UserI__403A8C7D">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="0..1" />
           <End Role="RentTable" Type="Self.RentTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -535,7 +535,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserTable__RoleI__267ABA7A">
+        <Association Name="FK__UserTable__RoleI__4316F928">
           <End Role="RoleTable" Type="Self.RoleTable" Multiplicity="0..1" />
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -547,7 +547,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserInfoT__UserI__2A4B4B5E">
+        <Association Name="FK__UserInfoT__UserI__4222D4EF">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
           <End Role="UserInfoTable" Type="Self.UserInfoTable" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -569,51 +569,51 @@
           <EntitySet Name="RoleTables" EntityType="Self.RoleTable" />
           <EntitySet Name="UserInfoTables" EntityType="Self.UserInfoTable" />
           <EntitySet Name="UserTables" EntityType="Self.UserTable" />
-          <AssociationSet Name="FK__BookDetai__Autho__31EC6D26" Association="Self.FK__BookDetai__Autho__31EC6D26">
+          <AssociationSet Name="FK__BookDetai__Autho__38996AB5" Association="Self.FK__BookDetai__Autho__38996AB5">
             <End Role="AuthorTable" EntitySet="AuthorTables" />
             <End Role="BookDetailTable" EntitySet="BookDetailTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__BookDetai__Publi__32E0915F" Association="Self.FK__BookDetai__Publi__32E0915F">
+          <AssociationSet Name="FK__BookDetai__Publi__398D8EEE" Association="Self.FK__BookDetai__Publi__398D8EEE">
             <End Role="PublisherTable" EntitySet="PublisherTables" />
             <End Role="BookDetailTable" EntitySet="BookDetailTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__BookTable__ISBN__35BCFE0A" Association="Self.FK__BookTable__ISBN__35BCFE0A">
+          <AssociationSet Name="FK__BookTable__ISBN__3A81B327" Association="Self.FK__BookTable__ISBN__3A81B327">
             <End Role="BookDetailTable" EntitySet="BookDetailTables" />
             <End Role="BookTable" EntitySet="BookTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetail__ISBN__403A8C7D" Association="Self.FK__RentDetail__ISBN__403A8C7D">
+          <AssociationSet Name="FK__RentDetail__ISBN__3E52440B" Association="Self.FK__RentDetail__ISBN__3E52440B">
             <End Role="BookDetailTable" EntitySet="BookDetailTables" />
             <End Role="RentDetailTable" EntitySet="RentDetailTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentTable__ISBN__398D8EEE" Association="Self.FK__RentTable__ISBN__398D8EEE">
+          <AssociationSet Name="FK__RentTable__ISBN__412EB0B6" Association="Self.FK__RentTable__ISBN__412EB0B6">
             <End Role="BookDetailTable" EntitySet="BookDetailTables" />
             <End Role="RentTable" EntitySet="RentTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetai__BookI__3F466844" Association="Self.FK__RentDetai__BookI__3F466844">
+          <AssociationSet Name="FK__RentDetai__BookI__3C69FB99" Association="Self.FK__RentDetai__BookI__3C69FB99">
             <End Role="BookTable" EntitySet="BookTables" />
             <End Role="RentDetailTable" EntitySet="RentDetailTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentTable__BookI__38996AB5" Association="Self.FK__RentTable__BookI__38996AB5">
+          <AssociationSet Name="FK__RentTable__BookI__3F466844" Association="Self.FK__RentTable__BookI__3F466844">
             <End Role="BookTable" EntitySet="BookTables" />
             <End Role="RentTable" EntitySet="RentTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetai__RentI__3E52440B" Association="Self.FK__RentDetai__RentI__3E52440B">
+          <AssociationSet Name="FK__RentDetai__RentI__3B75D760" Association="Self.FK__RentDetai__RentI__3B75D760">
             <End Role="RentTable" EntitySet="RentTables" />
             <End Role="RentDetailTable" EntitySet="RentDetailTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentDetai__UserI__412EB0B6" Association="Self.FK__RentDetai__UserI__412EB0B6">
+          <AssociationSet Name="FK__RentDetai__UserI__3D5E1FD2" Association="Self.FK__RentDetai__UserI__3D5E1FD2">
             <End Role="UserTable" EntitySet="UserTables" />
             <End Role="RentDetailTable" EntitySet="RentDetailTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__RentTable__UserI__3A81B327" Association="Self.FK__RentTable__UserI__3A81B327">
+          <AssociationSet Name="FK__RentTable__UserI__403A8C7D" Association="Self.FK__RentTable__UserI__403A8C7D">
             <End Role="UserTable" EntitySet="UserTables" />
             <End Role="RentTable" EntitySet="RentTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserTable__RoleI__267ABA7A" Association="Self.FK__UserTable__RoleI__267ABA7A">
+          <AssociationSet Name="FK__UserTable__RoleI__4316F928" Association="Self.FK__UserTable__RoleI__4316F928">
             <End Role="RoleTable" EntitySet="RoleTables" />
             <End Role="UserTable" EntitySet="UserTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserInfoT__UserI__2A4B4B5E" Association="Self.FK__UserInfoT__UserI__2A4B4B5E">
+          <AssociationSet Name="FK__UserInfoT__UserI__4222D4EF" Association="Self.FK__UserInfoT__UserI__4222D4EF">
             <End Role="UserTable" EntitySet="UserTables" />
             <End Role="UserInfoTable" EntitySet="UserInfoTables" />
           </AssociationSet>

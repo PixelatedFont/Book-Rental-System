@@ -1,4 +1,4 @@
-﻿@model WebApplication3.Models.BookDetailTable
+﻿@model WebFinalProject.Models.BookDetailTable
 
 @{
     ViewBag.Title = "Detail";
@@ -55,6 +55,7 @@
     </dl>
 </div>
 <p>
+    <input type="button" class="btn btn-primary" value="Back to list" onclick="location.href='@Url.Action("BookList", "Book")'" />
     @if (Convert.ToBoolean(Session["IsAdmin"]) == true)
     {
         <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href='@Url.Action("Index", "Book")'" />

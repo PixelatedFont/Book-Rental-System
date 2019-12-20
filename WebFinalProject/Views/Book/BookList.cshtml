@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplication3.Models.BookTable>
+﻿@model IEnumerable<WebFinalProject.Models.BookTable>
 
 <style>
     .godown {
@@ -41,7 +41,7 @@
                 <td>
                     <div class="btn-group-sm">
                         <input type="button" class="btn btn-primary" value="Rent" onclick="location.href='@Url.Action("Rent", "Rent", new { id = item.BookID })'" />
-                        <input type="button" class="btn btn-primary" value="Detail" onclick="location.href='@Url.Action("Detail", "Book", new { id = item.BookID })'" />
+                        <input type="button" class="btn btn-primary" value="Detail" onclick="location.href='@Url.Action("Detail", "Book", new { id = item.ISBN })'" />
 
                     </div>
                 </td>

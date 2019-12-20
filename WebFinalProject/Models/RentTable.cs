@@ -11,14 +11,30 @@ namespace WebFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class RentTable
     {
+
+        [DisplayName("Rent ID")]
         public int RentID { get; set; }
+
+        [DisplayName("Book ID")]
         public Nullable<int> BookID { get; set; }
+
+        [DisplayName("Book ISBN")]
         public Nullable<int> ISBN { get; set; }
+
+        [DisplayName("User ID")]
         public Nullable<int> UserID { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yy}")]
+        [DisplayName("Rent Date")]
         public Nullable<System.DateTime> RentDate { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yy}")]
+        [DisplayName("Due Date")]
         public Nullable<System.DateTime> DueDate { get; set; }
     
         public virtual BookDetailTable BookDetailTable { get; set; }

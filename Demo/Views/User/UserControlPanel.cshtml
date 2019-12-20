@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "UserControlPanel";
+}
+
+<h2>UserControlPanel</h2>
+
+<div class="jumbotron">
+    <div class="btn-group-vertical  btn-group-lg">
+        <input type="button" class="btn btn-primary" value="My Detail" onclick="location.href='@Url.Action("Detail", "User", new { id = Convert.ToInt32(Session["UserID"]) })'" />
+        <input type="button" class="btn btn-primary" value="Rent List" onclick="location.href='@Url.Action("UserRentList", "Rent", new { id = Convert.ToInt32(Session["UserID"]) })'" />
+    </div>
+</div>

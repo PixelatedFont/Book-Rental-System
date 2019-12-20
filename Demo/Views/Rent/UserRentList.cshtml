@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApplication3.Models.RentDetailTable>
+    <style>
+        body {
+            padding-top: 100px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f0ece4;
+        }
+    </style>
+
+<h2>RENT LIST</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deposit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookDetailTable.Title)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.RentDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DueDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReturnDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Deposit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookDetailTable.Title)
+    </td>
+
+    <td>
+        <div class="btn-group-sm">
+            <input type="button" class="btn btn-primary" value="Detail" onclick="location.href='@Url.Action("RentDetail", "Rent", new { id = item.RentID })'" />
+        </div>
+    </td>
+</tr>
+}
+
+</table>

@@ -11,7 +11,8 @@ namespace WebFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class BookDetailTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,7 +26,11 @@ namespace WebFinalProject.Models
         public int ISBN { get; set; }
         public string Title { get; set; }
         public string Summary { get; set; }
+
+        [DisplayName("Author ID")]
         public Nullable<int> AuthorID { get; set; }
+
+        [DisplayName("Publisher ID")]
         public Nullable<int> PublisherID { get; set; }
     
         public virtual AuthorTable AuthorTable { get; set; }

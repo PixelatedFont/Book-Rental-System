@@ -1,4 +1,4 @@
-﻿@model WebApplication3.Models.RentDetailTable
+﻿@model WebFinalProject.Models.RentDetailTable
 
 <style>
     body {
@@ -99,7 +99,7 @@
     </dl>
 </div>
 <p>
-    <input type="button" class="btn btn-primary" value="Back to list" onclick="location.href='@Url.Action("UserRentList", "Rent")'" />
+    <input type="button" class="btn btn-primary" value="Back to list" onclick="location.href='@Url.Action("UserRentList", "Rent", new {id = Model.UserID })'" />
     @if (Convert.ToBoolean(Session["IsAdmin"]) == true)
     {
         <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href='@Url.Action("Index", "Rent")'" />

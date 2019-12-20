@@ -11,7 +11,8 @@ namespace WebFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class AuthorTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,8 +20,11 @@ namespace WebFinalProject.Models
         {
             this.BookDetailTables = new HashSet<BookDetailTable>();
         }
-    
+        
+        [DisplayName("Author ID")]
         public int AuthorID { get; set; }
+
+        [DisplayName("Author Name")]
         public string AuthorName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

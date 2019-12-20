@@ -1,0 +1,63 @@
+﻿@model WebApplication3.Models.BookDetailTable
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<style>
+    body {
+        padding-top: 100px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color:#f0ece4;
+    }
+</style>
+<body>
+    <h2>
+        BOOK INFORMATION
+    </h2>
+</body>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorTable.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorTable.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherTable.PublisherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherTable.PublisherName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+    {
+        <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href='@Url.Action("Index", "Book")'" />
+    }
+
+</p>

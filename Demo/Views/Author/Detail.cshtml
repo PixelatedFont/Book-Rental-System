@@ -1,0 +1,36 @@
+﻿@model WebApplication3.Models.AuthorTable
+
+    <style>
+        body {
+            padding-top: 100px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #f0ece4;
+        }
+    </style>
+<body>
+    <h2>AUTHOR INFORMATION</h2>
+</body>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href='@Url.Action("Index", "Author")'" />
+    <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Edit", "Author", new { id = Model.AuthorID })'" />
+</p>

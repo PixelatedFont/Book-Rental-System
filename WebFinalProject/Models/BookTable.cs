@@ -11,7 +11,8 @@ namespace WebFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class BookTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,9 +21,14 @@ namespace WebFinalProject.Models
             this.RentDetailTables = new HashSet<RentDetailTable>();
             this.RentTables = new HashSet<RentTable>();
         }
-    
+
+        [DisplayName("Book ID")]
         public int BookID { get; set; }
-        public int ISBN { get; set; }
+
+        [DisplayName("Book ISBN")]
+        public Nullable<int> ISBN { get; set; }
+
+        [DisplayName("Book Status")]
         public Nullable<bool> BookStatus { get; set; }
     
         public virtual BookDetailTable BookDetailTable { get; set; }

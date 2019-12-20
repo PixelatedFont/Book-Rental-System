@@ -11,14 +11,27 @@ namespace WebFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class UserInfoTable
     {
+
+        [DisplayName("User ID")]
         public int UserID { get; set; }
+
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
+
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
+
+        [DisplayName("Email")]
         public string U_Email { get; set; }
+
+        [DisplayName("Phone Number")]
         public string U_PhoneNumber { get; set; }
+
+        [DisplayName("Address")]
         public string U_Address { get; set; }
     
         public virtual UserTable UserTable { get; set; }

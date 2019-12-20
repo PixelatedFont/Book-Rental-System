@@ -1,0 +1,107 @@
+﻿@model WebApplication3.Models.RentDetailTable
+
+<style>
+    body {
+        padding-top: 100px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: #f0ece4;
+
+    }
+</style>
+<body>
+    <h2>Rent Detail</h2>
+</body>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookDetailTable.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookDetailTable.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTable.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookTable.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deposit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deposit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    <input type="button" class="btn btn-primary" value="Back to list" onclick="location.href='@Url.Action("UserRentList", "Rent")'" />
+    @if (Convert.ToBoolean(Session["IsAdmin"]) == true)
+    {
+        <input type="button" class="btn btn-primary" value="Back to List" onclick="location.href='@Url.Action("Index", "Rent")'" />
+    }
+</p>

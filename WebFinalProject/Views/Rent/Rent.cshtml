@@ -1,4 +1,4 @@
-﻿@model WebApplication3.ViewModels.RentViewModel
+﻿@model WebFinalProject.ViewModels.RentViewModel
 
 
     <style>
@@ -18,29 +18,7 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BookDetailTable.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BookDetailTable.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BookDetailTable.AuthorTable.AuthorName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BookDetailTable.AuthorTable.AuthorName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BookDetailTable.PublisherTable.PublisherName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BookDetailTable.PublisherTable.PublisherName)
-        </dd>
+      
 
         <dt>
             @Html.DisplayNameFor(model => model.RentDate1)
@@ -81,8 +59,8 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="RENT" class="btn btn-primary" />
-        <input type="button" class="btn btn-primary" value="Back to list" onclick="location.href='@Url.Action("UserRentList", "Rent")'" />
+        <input type="button" class="btn btn-primary" value="Back to list" onclick="location.href='@Url.Action("BookList", "Book")'" />
+        <input type="submit" value="Rent" class="btn btn-primary" />
     </div>
     @if (Convert.ToBoolean(Session["IsAdmin"]) == true)
     {

@@ -11,7 +11,9 @@ namespace WebFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class UserTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,9 +22,15 @@ namespace WebFinalProject.Models
             this.RentDetailTables = new HashSet<RentDetailTable>();
             this.RentTables = new HashSet<RentTable>();
         }
-    
+
+        [DisplayName("User ID")]
         public int UserID { get; set; }
+
+        [DisplayName("Username")]
         public string UserName { get; set; }
+
+        [DisplayName("Password")]
+        [DataType(DataType.Password)]
         public string U_Pwd { get; set; }
         public Nullable<int> RoleID { get; set; }
     
